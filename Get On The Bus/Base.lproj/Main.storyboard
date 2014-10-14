@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="P6d-20-WTa">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="P6d-20-WTa">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="oyF-rK-rTm"/>
@@ -24,6 +24,12 @@
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P6d-20-WTa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="CLU-3k-gUm"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="P6d-20-WTa" secondAttribute="bottom" id="JNk-G2-Rj2"/>
+                            <constraint firstItem="P6d-20-WTa" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="bxQ-yP-fwN"/>
+                            <constraint firstAttribute="trailing" secondItem="P6d-20-WTa" secondAttribute="trailing" id="seE-DE-b3w"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="P6d-20-WTa" id="Hbq-0a-aAW"/>

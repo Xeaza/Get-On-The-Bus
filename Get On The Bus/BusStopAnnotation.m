@@ -45,7 +45,15 @@
 - (CLLocationCoordinate2D)coordinate {
     CLLocationCoordinate2D coordNew;
     coordNew.latitude  = [json[@"latitude"] doubleValue];
-    coordNew.longitude = [json[@"longitude"] doubleValue];
+    double longitude = [json[@"longitude"] doubleValue];
+    // There's one value in our data that isn't negitive and it should be
+    // Make it so!
+    if (longitude < 0) {
+        coordNew.longitude = longitude;
+    }
+    else {
+        coordNew.longitude = -longitude;
+    }
     return coordNew;
 }
 
@@ -66,8 +74,7 @@
 }
 
 - (NSString *)subtitle {
-    NSString *route = @"Routes: ";
-    NSString *routes = [route stringByAppendingString:[self routes]];
+    NSString *routes = [@"Routs: " stringByAppendingString:[self routes]];
     return routes;
 }
 
