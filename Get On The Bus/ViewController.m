@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import <MapKit/MapKit.h>
-#import "Bus.h"
+#import "BusStop.h"
 
 @interface ViewController () <MKMapViewDelegate>
 
@@ -49,8 +49,8 @@
              // Create a bus object for each dictionary in the json array of dicts.
              for (NSDictionary *busJsonDict in arrayOfBusJsonDicts)
              {
-                 Bus *bus = [[Bus alloc] initWithJSONDict:busJsonDict];
-                 [self addBusStopPin:bus];
+                 BusStop *busStop = [[BusStop alloc] initWithJSONDict:busJsonDict];
+                 [self addBusStopPin:busStop];
              }
          }
          else
@@ -60,7 +60,7 @@
      }];
 }
 
-- (void)addBusStopPin:(Bus *)bus
+- (void)addBusStopPin:(BusStop *)bus
 {
     MKPointAnnotation *busStopAnnotation = [[MKPointAnnotation alloc] init];
     busStopAnnotation.coordinate = bus.coord;

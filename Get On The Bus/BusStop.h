@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface Bus : NSObject
+@interface BusStop : NSObject
 
 @property NSURL *addressUrl;
 @property NSInteger busId;
