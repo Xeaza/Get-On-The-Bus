@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		344C064819ED9DCE002F32AC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344C064719ED9DCE002F32AC /* MapKit.framework */; };
+		344C064B19EDA00B002F32AC /* Bus.m in Sources */ = {isa = PBXBuildFile; fileRef = 344C064A19EDA00B002F32AC /* Bus.m */; };
 		34EDBF6719ED8EF300C5CB4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EDBF6619ED8EF300C5CB4B /* main.m */; };
 		34EDBF6A19ED8EF300C5CB4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EDBF6919ED8EF300C5CB4B /* AppDelegate.m */; };
 		34EDBF6D19ED8EF300C5CB4B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EDBF6C19ED8EF300C5CB4B /* ViewController.m */; };
@@ -27,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		344C064719ED9DCE002F32AC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		344C064919EDA00B002F32AC /* Bus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus.h; sourceTree = "<group>"; };
+		344C064A19EDA00B002F32AC /* Bus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus.m; sourceTree = "<group>"; };
 		34EDBF6119ED8EF300C5CB4B /* Get On The Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get On The Bus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34EDBF6519ED8EF300C5CB4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34EDBF6619ED8EF300C5CB4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				344C064819ED9DCE002F32AC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +91,8 @@
 				34EDBF6919ED8EF300C5CB4B /* AppDelegate.m */,
 				34EDBF6B19ED8EF300C5CB4B /* ViewController.h */,
 				34EDBF6C19ED8EF300C5CB4B /* ViewController.m */,
+				344C064919EDA00B002F32AC /* Bus.h */,
+				344C064A19EDA00B002F32AC /* Bus.m */,
 				34EDBF6E19ED8EF300C5CB4B /* Main.storyboard */,
 				34EDBF7119ED8EF300C5CB4B /* Images.xcassets */,
 				34EDBF7319ED8EF300C5CB4B /* LaunchScreen.xib */,
@@ -96,6 +104,7 @@
 		34EDBF6419ED8EF300C5CB4B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				344C064719ED9DCE002F32AC /* MapKit.framework */,
 				34EDBF6519ED8EF300C5CB4B /* Info.plist */,
 				34EDBF6619ED8EF300C5CB4B /* main.m */,
 			);
@@ -221,6 +230,7 @@
 			files = (
 				34EDBF6D19ED8EF300C5CB4B /* ViewController.m in Sources */,
 				34EDBF6A19ED8EF300C5CB4B /* AppDelegate.m in Sources */,
+				344C064B19EDA00B002F32AC /* Bus.m in Sources */,
 				34EDBF6719ED8EF300C5CB4B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +422,7 @@
 				34EDBF8619ED8EF300C5CB4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		34EDBF8719ED8EF300C5CB4B /* Build configuration list for PBXNativeTarget "Get On The BusTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +431,7 @@
 				34EDBF8919ED8EF300C5CB4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
