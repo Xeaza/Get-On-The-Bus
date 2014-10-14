@@ -65,5 +65,11 @@
     return json[@"cta_stop_name"];
 }
 
+- (NSString *)subtitle {
+    NSString *route = @"Routes: ";
+    NSString *routes = [route stringByAppendingString:[self routes]];
+    return routes;
+}
+
 
 @end

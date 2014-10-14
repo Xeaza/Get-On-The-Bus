@@ -60,23 +60,46 @@
      }];
 }
 
-//-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
-//{
-//    if (annotation == mapView.userLocation)
-//    {
-//        return nil;
-//    }
-//
-//    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MyPinID"];
-//    pin.canShowCallout = YES;
-//    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//
-//    MKAnnotationView *annotationView = (CustomAnnotation *)annotation;
-//
-//    //pin.image = [UIImage imageNamed:@"calvin_boring"];
-//
-//    return annotationView;
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    if (annotation == mapView.userLocation)
+    {
+        return nil;
+    }
+
+    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MyPinID"];
+    pin.canShowCallout = YES;
+    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    //CGSize            size = CGSizeMake(100.0, 80.0);
+    //pin.annotation. //.view.frame = CGRectMake(0.0, 0.0, size.width, size.height);
+   // [pin.inputView setBounds:CGRectMake(0, 0, 200, 300)];
+    //pin.image = [UIImage imageNamed:@"calvin_boring"];
+
+
+//    if ([annotation isKindOfClass:[CustomAnnotation class]]) {
+//        MKPinAnnotationView *view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:customIdentifier];
+//        view.canShowCallout       = NO;  // make sure to turn off standard callout
+//        return view;
+    //}
+    //if ([annotation isKindOfClass:[CalloutAnnotation class]]) {
+        //CGSize            size = CGSizeMake(100.0, 80.0);
+        //MKAnnotationView *view = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MyPinID"];
+        //view.frame             = CGRectMake(0.0, 0.0, size.width, size.height);
+        //view.backgroundColor   = [UIColor whiteColor];
+        //UIButton *button       = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        //button.frame           = CGRectMake(5.0, 5.0, size.width - 10.0, size.height - 10.0);
+        //[button setTitle:@"OK" forState:UIControlStateNormal];
+        //[button addTarget:self action:@selector(didTouchUpInsideCalloutButton:) forControlEvents:UIControlEventTouchUpInside];
+        //[view addSubview:button];
+        //view.canShowCallout    = NO;
+        //view.centerOffset      = CGPointMake(0.0, -kMyCalloutOffset);
+        //return view;
+   // }
+
+   // return nil;
 //}
+    return pin;
+}
 
 //-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 //{

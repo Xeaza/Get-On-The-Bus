@@ -22,6 +22,8 @@
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *subtitle;
+
 
 - (instancetype)initWithJSONDict: (NSDictionary *)busJSONDict;
 
