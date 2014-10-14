@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import <MapKit/MapKit.h>
-#import "BusStop.h"
+#import "BusStopAnnotation.h"
 
 @interface ViewController () <MKMapViewDelegate>
 
@@ -49,8 +49,8 @@
              // Create a bus object for each dictionary in the json array of dicts.
              for (NSDictionary *busJsonDict in arrayOfBusJsonDicts)
              {
-                 BusStop *busStop = [[BusStop alloc] initWithJSONDict:busJsonDict];
-                 [self addBusStopPin:busStop];
+                 BusStopAnnotation *busStop = [[BusStopAnnotation alloc] initWithJSONDict:busJsonDict];
+                 [self.mapView addAnnotation:busStop];
              }
          }
          else
@@ -58,14 +58,6 @@
              NSLog(@"Bus data fail");
          }
      }];
-}
-
-- (void)addBusStopPin:(BusStop *)bus
-{
-    MKPointAnnotation *busStopAnnotation = [[MKPointAnnotation alloc] init];
-    busStopAnnotation.coordinate = bus.coord;
-    busStopAnnotation.title = bus.ctaStop;
-    [self.mapView addAnnotation:busStopAnnotation];
 }
 
 //-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -78,9 +70,12 @@
 //    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MyPinID"];
 //    pin.canShowCallout = YES;
 //    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//    pin.image = [UIImage imageNamed:@"calvin_boring"];
 //
-//    return pin;
+//    MKAnnotationView *annotationView = (CustomAnnotation *)annotation;
+//
+//    //pin.image = [UIImage imageNamed:@"calvin_boring"];
+//
+//    return annotationView;
 //}
 
 //-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
