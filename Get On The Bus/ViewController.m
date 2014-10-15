@@ -9,10 +9,15 @@
 #import "ViewController.h"
 #import <MapKit/MapKit.h>
 #import "BusStopAnnotation.h"
+#import "BusStopDetailViewController.h"
 
-@interface ViewController () <MKMapViewDelegate>
+@interface ViewController () <MKMapViewDelegate,  UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property NSMutableArray *busStopsArray;
 
 @end
 
@@ -21,9 +26,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.busStopsArray = [[NSMutableArray alloc] init];
     NSURL *urlString = [NSURL URLWithString:@"https://s3.amazonaws.com/mobile-makers-lib/bus.json"];
     [self getJsonData:urlString];
+    self.tableView.alpha = 0.0;
+}
+
+- (IBAction)indexDidChangeForSegmentedControl:(UISegmentedControl*)segmentedControl
+{
+    switch (segmentedControl.selectedSegmentIndex)
+    {
+        case 0:
+        {
+            [UIView animateWithDuration:0.3 animations:^{
+                self.tableView.alpha = 0.0;
+            }];
+            break;
+        }
+        case 1:
+        {
+            [UIView animateWithDuration:0.3 animations:^{
+                self.tableView.alpha = 1.0;
+            }];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (void)getJsonData: (NSURL *)url
@@ -51,10 +80,10 @@
              {
                  BusStopAnnotation *busStop = [[BusStopAnnotation alloc] initWithJSONDict:busJsonDict];
                  [self.mapView addAnnotation:busStop];
+                 [self.busStopsArray addObject:busStop];
              }
-             //NSLog(@"%@", self.annotationsArray);
              [self.mapView showAnnotations:self.mapView.annotations animated:YES];
-
+             [self.tableView reloadData];
          }
          else
          {
@@ -74,22 +103,84 @@
     pin.canShowCallout = YES;
     pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 
+    BusStopAnnotation *busStopAnnotaion = (BusStopAnnotation *)annotation;
+    if (busStopAnnotaion.interModal)
+    {
+        if ([busStopAnnotaion.interModal isEqualToString:@"Metra"])
+        {
+            UIImageView *customImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"metra"]];
+            pin.leftCalloutAccessoryView = customImageView;
+        }
+        else
+        {
+            UIImageView *customImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pace"]];
+            pin.leftCalloutAccessoryView = customImageView;
+        }
+    }
+    else
+    {
+        UIImageView *customImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"no_connection"]];
+        pin.leftCalloutAccessoryView = customImageView;
+    }
+
+    // Uncomment to add an image to the annotation leftCalloutAccessoryView
+//    UIImageView *customImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"metra"]];
+//    pin.leftCalloutAccessoryView = customImageView;
+
     return pin;
 }
 
-//-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
-//{
-//    CLLocationCoordinate2D center = view.annotation.coordinate;
-//
-//    MKCoordinateSpan span;
-//    span.latitudeDelta = 0.01;
-//    span.longitudeDelta = 0.01;
-//
-//    MKCoordinateRegion region;
-//    region.center = center;
-//    region.span = span;
-//
-//    [self.mapView setRegion:region animated:YES];
-//}
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    [self performSegueWithIdentifier:@"AnnotationSegue" sender:view];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(MKAnnotationView *)annotationView
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    BusStopDetailViewController *busStopDetailViewController = segue.destinationViewController;
+
+    if ([segue.identifier isEqualToString:@"AnnotationSegue"])
+    {
+        busStopDetailViewController.busStopAnnotation = annotationView.annotation;
+    }
+    else if ([segue.identifier isEqualToString:@"TableViewSegue"])
+    {
+        busStopDetailViewController.busStopAnnotation = [self.busStopsArray objectAtIndex:indexPath.row];
+    }
+}
+
+#pragma mark - TableView Delegate Methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.busStopsArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    BusStopAnnotation *annotation = [self.busStopsArray objectAtIndex:indexPath.row];
+    if (annotation.interModal)
+    {
+        if ([annotation.interModal isEqualToString:@"Metra"])
+        {
+            cell.imageView.image = [UIImage imageNamed:@"metra"];
+        }
+        else
+        {
+            cell.imageView.image = [UIImage imageNamed:@"pace"];
+        }
+    }
+    else
+    {
+        cell.imageView.image = [UIImage imageNamed:@"no_connection"];
+    }
+
+    cell.textLabel.text = annotation.title;
+    cell.detailTextLabel.text = annotation.routes;
+    return cell;
+}
+
 
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		344C064819ED9DCE002F32AC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344C064719ED9DCE002F32AC /* MapKit.framework */; };
 		344C064B19EDA00B002F32AC /* BusStopAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 344C064A19EDA00B002F32AC /* BusStopAnnotation.m */; };
+		344C065119EDCF73002F32AC /* BusStopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344C065019EDCF73002F32AC /* BusStopDetailViewController.m */; };
 		34EDBF6719ED8EF300C5CB4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EDBF6619ED8EF300C5CB4B /* main.m */; };
 		34EDBF6A19ED8EF300C5CB4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EDBF6919ED8EF300C5CB4B /* AppDelegate.m */; };
 		34EDBF6D19ED8EF300C5CB4B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EDBF6C19ED8EF300C5CB4B /* ViewController.m */; };
@@ -32,6 +33,8 @@
 		344C064719ED9DCE002F32AC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		344C064919EDA00B002F32AC /* BusStopAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStopAnnotation.h; sourceTree = "<group>"; };
 		344C064A19EDA00B002F32AC /* BusStopAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStopAnnotation.m; sourceTree = "<group>"; };
+		344C064F19EDCF73002F32AC /* BusStopDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStopDetailViewController.h; sourceTree = "<group>"; };
+		344C065019EDCF73002F32AC /* BusStopDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStopDetailViewController.m; sourceTree = "<group>"; };
 		34EDBF6119ED8EF300C5CB4B /* Get On The Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get On The Bus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34EDBF6519ED8EF300C5CB4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34EDBF6619ED8EF300C5CB4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 				34EDBF6919ED8EF300C5CB4B /* AppDelegate.m */,
 				34EDBF6B19ED8EF300C5CB4B /* ViewController.h */,
 				34EDBF6C19ED8EF300C5CB4B /* ViewController.m */,
+				344C064F19EDCF73002F32AC /* BusStopDetailViewController.h */,
+				344C065019EDCF73002F32AC /* BusStopDetailViewController.m */,
 				344C064919EDA00B002F32AC /* BusStopAnnotation.h */,
 				344C064A19EDA00B002F32AC /* BusStopAnnotation.m */,
 				34EDBF6E19ED8EF300C5CB4B /* Main.storyboard */,
@@ -232,6 +237,7 @@
 				34EDBF6A19ED8EF300C5CB4B /* AppDelegate.m in Sources */,
 				344C064B19EDA00B002F32AC /* BusStopAnnotation.m in Sources */,
 				34EDBF6719ED8EF300C5CB4B /* main.m in Sources */,
+				344C065119EDCF73002F32AC /* BusStopDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

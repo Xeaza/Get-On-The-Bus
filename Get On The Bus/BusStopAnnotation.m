@@ -69,12 +69,16 @@
     return [json[@"ward"] integerValue];
 }
 
+- (NSString *)interModal {
+    return json[@"inter_modal"];
+}
+
 - (NSString *)title {
     return json[@"cta_stop_name"];
 }
 
 - (NSString *)subtitle {
-    NSString *routes = [@"Routs: " stringByAppendingString:[self routes]];
+    NSString *routes = [@"Routes: " stringByAppendingString:[self routes]];
     return routes;
 }
 

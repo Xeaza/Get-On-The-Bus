@@ -19,11 +19,11 @@
 @property (readonly) NSString *routes;
 @property (readonly) NSInteger stopId;
 @property (readonly) NSInteger ward;
+@property (readonly) NSString * interModal;
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *subtitle;
-
 
 - (instancetype)initWithJSONDict: (NSDictionary *)busJSONDict;
 
